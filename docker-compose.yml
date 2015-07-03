@@ -1,0 +1,25 @@
+javanetwork:
+  build: .
+  environment:
+    - ORG_GRADLE_PROJECT_dbMysqlHost=sqldb
+  volumes:
+    - .:/docker/volumes/src
+    - ./docker-volumes/gradle/wrapper:/root/.gradle/wrapper
+    - ./docker-volumes/gradle/caches:/root/.gradle/caches
+    - ./docker-volumes/tomcat/conf:/usr/local/tomcat/conf
+    - ./docker-volumes/tomcat/temp:/usr/local/tomcat/temp
+    - ./docker-volumes/tomcat/logs:/usr/local/tomcat/logs
+  ports:
+    - "8080:8080"
+  links:
+    - mysql:sqldb
+mysql:
+  image: mysql:5.6.25
+  environment:
+    - MYSQL_ROOT_PASSWORD=changeit
+    - MYSQL_DATABASE=javanetwork_main
+    - MYSQL_USER=user_default
+    - MYSQL_PASSWORD=changeit
+  volumes:
+    - ./docker-volumes/mysql/conf.d:/etc/mysql/conf.d
+    - ./docker-volumes/mysql/data:/var/lib/mysql

@@ -1,0 +1,37 @@
+plugins {
+    id 'java'
+    id 'idea'
+    id 'application'
+}
+
+group 'com.alesto'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile("com.fasterxml.jackson.core:jackson-databind:2.5.3")
+    compile group: 'org.springframework', name: 'spring-web', version: '4.1.6.RELEASE'
+    compile group: 'org.springframework.hateoas', name: 'spring-hateoas', version: '0.17.0.RELEASE'
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+jar {
+    baseName = 'javanetwork-console'
+    version = '0.0.1-SNAPSHOT'
+}
+mainClassName = "com.alesto.javanetwork.console.Console"
+
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.4'
+}
+
+run{
+    standardInput = System.in
+}

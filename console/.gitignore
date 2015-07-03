@@ -1,0 +1,25 @@
+# Gradle
+/.gradle
+/gradle-app.setting
+/build
+
+# Maven
+/target
+
+# Eclipse
+
+.project
+.springBeans
+.classpath
+/.settings
+
+# JetBrains
+
+*.iml
+.idea/
+/out
+
+# Other
+
+.DS_Store
+/bin
