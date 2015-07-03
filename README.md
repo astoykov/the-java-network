@@ -5,7 +5,7 @@ This project is a mini-twitter app which enables console based users to post mes
 The domain model uses only two entities:
 
 `Timeline (Id, Username, Message, Created)` - keeps all users messages
-and
+
 `Follows (Id, Username, followUser)` - keeps which user follows which
 
 The server side utilises Spring Data to abstract out the data access (H2 is used for standalone test and MySQL for deployment) and then provides a HATEOAS REST interface through Spring MVC.
